@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Configuración Enchufe Bluetooth</title>
+
+  <!-- Librería MQTT y Hoja de estilos (ajusta la ruta si hace falta) -->
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <link rel="icon" type="image/png" href={% static "devices/img/logo-ingeniatic.png" %}/>
+  <link rel="stylesheet" href="{% static 'devices/styleMK107.css' %}">
+
+</head>
+<body>
+  <div class="container">
+    <!-- Logo -->
+    <img src={% static "devices/img/cartel-ingeniatic.png" %} alt="Logo de la Empresa" class="logo">
+
+    <!-- Título principal -->
+    <h1>CONFIGURAR ENCHUFE INTELIGENTE</h1>
+
+    <!-- FLEX WRAPPER: Pasos + Imagen a la derecha -->
+    <div class="pasos-gif-wrapper">
+      <!-- Sección de pasos -->
+      <div class="pasos">
+        <h3>Pasos:</h3>
+        <p id="pasos-message">
+          Paso 1 de 5: Asegúrese de que el dispositivo esté encendido y en modo configuración...
+        </p>
+      </div>
+
+      <!-- Contenedor de la imagen (GIF) a la derecha -->
+      <div class="gif-container">
+        <img src={% static "devices/img/azulBlink.gif" %} alt="Gif" class="gif">
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <button id="set-password-btn">Seleccionar Dispositivo Bluetooth</button>
+    <button id="set-wifi-btn">Desplegable Configuración Wifi</button>
+    <button id="set-wifi">Configurar Datos de la Wifi</button>
+    <button id="set-light">Apagar la Luz del Dispositivo</button>
+
+    <!-- Formulario de WiFi -->
+    <div id="wifiForm">
+      <!-- Inputs SSID, Contraseña, etc. -->
+      <label for="ssid">SSID:</label>
+      <input type="text" id="ssid" />
+
+      <!-- ... Más inputs y botón Guardar ... -->
+      <button id="save-btn">Guardar Configuración</button>
+    </div>
+
+    <!-- Estado -->
+    <div class="status">
+      <h3>Estado:</h3>
+      <p id="status-message"></p>
+    </div>
+  </div>
+
+  <!-- Script principal -->
+  <script src="{% static 'devices/MK107.js' %}"></script>
+</body>
+</html>

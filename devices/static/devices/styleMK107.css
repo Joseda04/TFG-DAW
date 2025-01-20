@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* ------------------ RESETEO BÁSICO ------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------ ESTILOS GENERALES DEL BODY ------------------ */
+body {
+  font-family: 'Roboto', sans-serif;
+  /* 
+    Eliminamos display:flex; y overflow:hidden;
+    para permitir un uso completo de la pantalla y el scroll.
+  */
+  background: linear-gradient(135deg, #74ebd5, #acb6e5);
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* ------------------ CONTENEDOR PRINCIPAL ------------------ */
+.container {
+  /* 
+    Anchura máxima en pantallas grandes y 
+    pequeño margen horizontal para que no toque los bordes.
+  */
+  max-width: 1200px;
+  width: 90%;
+  background: #ffffff;
+  margin: 40px auto; /* Centrado + espacio superior/inferior */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+  transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Animación para el contenedor */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ------------------ ENCABEZADOS ------------------ */
+h1 {
+  color: #007bff;
+  margin-bottom: 25px;
+  font-size: 28px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  animation: slideIn 1s ease-in-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(0); }
+}
+
+/* ------------------ SECCIÓN PASOS ------------------ */
+.pasos {
+  flex: 1;
+  text-align: left;
+  margin-bottom: 25px;
+  padding: 20px;
+  background-color: #e6f7ff;
+  border: 2px solid #99ccff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1.5s;
+  transition: transform 0.4s;
+  /* 
+    Para que el GIF flotante suba y no se superponga,
+    margin-right le deja espacio si fuese necesario.
+  */
+  margin-right: 150px;
+}
+
+.pasos:hover {
+  transform: scale(1.05);
+}
+
+.pasos h3 {
+  font-size: 22px;
+  color: #007bff;
+  margin-bottom: 15px;
+  text-decoration: underline;
+}
+
+.pasos p {
+  font-size: 17px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ------------------ GIF A LA DERECHA ------------------ */
+.gif-container {
+  /* Tamaño fijo (o ajustable) para que no quede enorme */
+  width: 150px;
+  /* Centrado dentro de su contenedor en vertical */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-container img {
+  width: 100%; 
+  height: auto;
+  /* Si quisieras más pequeño, 
+     por ejemplo width: 80% o 100px. */
+}
+
+.pasos-gif-wrapper {
+  display: flex;
+  /* 
+    Sin 'flex-wrap' o con 'flex-wrap: nowrap', 
+    la imagen no se bajará debajo de .pasos 
+    incluso en pantallas pequeñas (podría causar scroll horizontal).
+  */
+  flex-wrap: nowrap; 
+  align-items: flex-start; 
+  justify-content: space-between; 
+  gap: 20px; /* Espacio entre pasos y gif */
+  margin-bottom: 20px;
+}
+
+/* ------------------ BOTONES ------------------ */
+button {
+  background: linear-gradient(135deg, #007bff, #00d4ff);
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px 5px;
+  transition: background 0.5s, transform 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+}
+
+button:hover {
+  background: linear-gradient(135deg, #0056b3, #00aaff);
+  transform: translateY(-3px);
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ------------------ INPUTS (FORM) ------------------ */
+input {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Formulario WiFi inicialmente oculto */
+#wifiForm {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  animation: slideDown 0.7s forwards;
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}
+
+/* ------------------ ESTADO ------------------ */
+.status {
+  margin-top: 25px;
+  padding: 15px;
+  background-color: #f0f4f8;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  animation: fadeIn 1.5s;
+}
+
+.status h3 {
+  margin: 0 0 5px;
+  font-size: 22px;
+  color: #333;
+}
+
+.status p {
+  margin: 5px 0;
+  font-size: 15px;
+  color: #666;
+}
+
+/* ------------------ LOGO ------------------ */
+.logo {
+  max-width: 80%;
+  height: auto;
+  margin-bottom: 25px;
+  transition: transform 0.4s;
+  animation: bounceIn 1.5s;
+}
+
+.logo:hover {
+  transform: scale(1.05) rotate(-3deg);
+}
+
+@keyframes bounceIn {
+  0%   { transform: scale(0.3); }
+  50%  { transform: scale(1.1); }
+  70%  { transform: scale(0.9); }
+  100% { transform: scale(1);   }
+}
+
+/* ------------------ MEDIA QUERIES ------------------ */
+/* Ajustes para tablets <= 768px */
+@media (max-width: 768px) {
+  .container {
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .pasos p {
+    font-size: 15px;
+  }
+
+  .pasos h3 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    margin: 5px;
+  }
+}
+
+/* Ajustes para teléfonos <= 480px */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .pasos p {
+    font-size: 14px;
+  }
+
+  .pasos h3 {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 5px 2px;
+  }
+
+  input {
+    padding: 12px;
+    margin: 10px 0;
+  }
+
+  .pasos-gif-wrapper {
+    flex-wrap: wrap; /* Si permites que baje la imagen */
+    /* O mantén nowrap si deseas scroll horizontal 
+       y forzar la imagen a la derecha. */
+  }
+
+  /* Podrías ajustar la anchura de la imagen si gustas */
+  .gif-container {
+    width: 120px;
+    margin-top: 10px;
+  }
+}

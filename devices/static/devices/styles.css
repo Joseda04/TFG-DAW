@@ -1,0 +1,242 @@
+/* =====================================
+   NUEVA FUENTE (EJEMPLO)
+   ===================================== */
+   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+   /* =====================================
+      ESTILOS GLOBALES
+      ===================================== */
+   body {
+       font-family: 'IBM Plex Sans', sans-serif;
+       /* Fondo claro y minimalista */
+       background-color: #f0f2f5;
+       margin: 0;
+       padding: 0;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       height: 100vh;
+       text-align: center;
+       color: #333;
+       overflow: hidden;
+   }
+   
+   /* =====================================
+      TITULOS / ANIMACIONES DE TEXTO
+      ===================================== */
+   h1 {
+       margin-bottom: 20px;
+       font-size: 3em;
+       /* Degradado sutil en el texto */
+       background: linear-gradient(90deg, #ff8a00, #e52e71);
+       background-size: 200% 200%;
+       background-clip: text;
+       -webkit-background-clip: text;
+       -webkit-text-fill-color: transparent;
+       animation: gradienteTexto 3s ease-in-out infinite;
+       text-shadow: 0 0 10px rgba(0,0,0,0.1);
+   }
+   
+   @keyframes gradienteTexto {
+       0% {
+           background-position: 0% 50%;
+       }
+       50% {
+           background-position: 100% 50%;
+       }
+       100% {
+           background-position: 0% 50%;
+       }
+   }
+   
+   /* =====================================
+      BOTONES
+      ===================================== */
+   button {
+       background: #3498db;
+       color: #fff;
+       border: none;
+       border-radius: 8px;
+       padding: 14px 20px;
+       font-size: 1rem;
+       cursor: pointer;
+       margin: 15px auto;
+       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+       width: 80%;
+       max-width: 300px;
+       box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+   }
+   
+   button:hover {
+       transform: translateY(-4px);
+       background-color: #2980b9;
+       box-shadow: 0 4px 16px rgba(52, 152, 219, 0.4);
+   }
+   
+   button:disabled {
+       background: #bdc3c7;
+       cursor: not-allowed;
+       box-shadow: none;
+   }
+   
+   /* =====================================
+      CAMPOS DE TEXTO
+      ===================================== */
+   input {
+       width: 100%;
+       padding: 14px;
+       margin: 15px 0;
+       border: 1px solid #ccc;
+       border-radius: 8px;
+       font-size: 1rem;
+       background-color: #fff;
+       color: #333;
+       transition: border 0.3s, box-shadow 0.3s;
+   }
+   
+   input:focus {
+       border-color: #3498db;
+       outline: none;
+       box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+   }
+   
+   /* =====================================
+      CONTENEDOR PRINCIPAL
+      ===================================== */
+   .container {
+       background: #fff;
+       padding: 40px;
+       border-radius: 12px;
+       width: 500px;
+       max-width: 90%;
+       box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+       animation: fadeIn 0.8s ease-in-out;
+       border: 1px solid #f0f0f0;
+   }
+   
+   .container:hover {
+       transform: translateY(-2px);
+       box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+   }
+   
+   @keyframes fadeIn {
+       from {
+           opacity: 0;
+           transform: translateY(6px);
+       }
+       to {
+           opacity: 1;
+           transform: translateY(0);
+       }
+   }
+   
+   /* =====================================
+      SECCIÓN DE ESTADO / ALERTA
+      ===================================== */
+   .status {
+       margin-top: 25px;
+       padding: 15px;
+       background-color: #fafafa;
+       border-radius: 8px;
+       border: 1px solid #ddd;
+       animation: fadeIn 1s;
+       color: #555;
+       text-shadow: none;
+   }
+   
+  /* =====================================
+   LOGO
+   ===================================== */
+.logo {
+    width: 250px;
+    height: auto;
+    margin-bottom: 30px;
+
+    /* Animación sencilla: zoom suave */
+    animation: logoZoom 3s infinite ease-in-out;
+}
+
+/* Nueva animación de escalado suave */
+@keyframes logoZoom {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.10);
+    }
+}
+
+   
+   /* =====================================
+      RESPONSIVIDAD
+      ===================================== */
+   
+   /* Para tablets (hasta 768px) */
+   @media (max-width: 768px) {
+       h1 {
+           font-size: 2.2em;
+       }
+   
+       .container {
+           padding: 30px;
+           width: 80%;
+       }
+       
+       button {
+           max-width: 280px;
+           font-size: 0.95rem;
+       }
+   }
+   
+   /* Para móviles (hasta 480px) */
+   @media (max-width: 480px) {
+       h1 {
+           font-size: 1.8em;
+       }
+       
+       .container {
+           padding: 20px;
+           width: 90%;
+       }
+       
+       button {
+           font-size: 0.85rem;
+           padding: 12px 16px;
+       }
+       
+       input {
+           font-size: 0.9rem;
+       }
+   }
+   
+   /* =====================================
+      SIDEBAR
+      ===================================== */
+
+
+   .sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+.content {
+    margin-left: 250px;
+    padding: 20px;
+    width: 100%;
+}
+.sidebar a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+.sidebar a:hover {
+    background-color: #e9ecef;
+}

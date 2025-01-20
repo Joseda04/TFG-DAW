@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectar Pulsera Bluetooth</title>
+    <link rel="icon" type="image/png" href={% static "devices/img/logo-ingeniatic.png" %}/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+<link rel="stylesheet" href="{% static 'devices/styles.css' %}">
+
+</head>
+<body>
+    <img src={% static "devices/img/cartel-ingeniatic.png" %} alt="Logo de la Empresa" class="logo">
+    <h1>Control de Pulsera Bluetooth</h1>
+    <div id="device-info" style="display: none;">
+        <p><strong>Nombre del dispositivo:</strong> <span id="device-name"></span></p>
+        <p><strong>Nivel de batería:</strong> <span id="battery-level">Cargando...</span></p>
+    </div>
+
+    <button id="connectButton"><i class="fas fa-bluetooth"></i> Conectar</button>
+    <button id="disabledButton" disabled>Deshabilitar Apagado</button>
+    <p id="status-message"></p>
+
+    <script src="{% static 'devices/W6.js' %}"></script>
+
+</body>
+</html>
